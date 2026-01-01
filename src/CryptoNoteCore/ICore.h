@@ -15,6 +15,8 @@
 
 #include "CryptoNoteCore/MessageQueue.h"
 #include "CryptoNoteCore/BlockchainMessages.h"
+#include <memory>
+
 
 namespace CryptoNote {
 
