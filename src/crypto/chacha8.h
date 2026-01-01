@@ -11,6 +11,7 @@
 #include <string>
 
 #include "hash.h"
+#include <cstring>
 
 namespace Crypto {
   extern "C" {
@@ -45,7 +46,8 @@ namespace Crypto {
     static_assert(sizeof(chacha8_key) <= sizeof(Hash), "Size of hash must be at least that of chacha8_key");
     Hash pwd_hash;
     cn_slow_hash(context, password.data(), password.size(), pwd_hash);
-    memcpy(&key, &pwd_hash, sizeof(key));
+    static_assert(sizeof(key) == sizeof(pwd_hash), "size mismatch");
+    std::memcpy(&key, &pwd_hash, sizeof(key));
     memset(&pwd_hash, 0, sizeof(pwd_hash));
   }
 }

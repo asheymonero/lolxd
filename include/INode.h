@@ -16,6 +16,7 @@
 
 #include "BlockchainExplorerData.h"
 #include "ITransaction.h"
+#include <memory>
 
 namespace CryptoNote {
 
